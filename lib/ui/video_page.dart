@@ -63,8 +63,42 @@ class _VideoPlayPageState extends State<VideoPlayPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: buildPageView(),
+    return Stack(children: [
+      Scaffold(
+        body: buildPageView(),
+      ),
+      _buildTransparentTitleBar()
+    ]);
+  }
+
+  Widget _buildTransparentTitleBar() {
+    return SafeArea(
+      child: Container(
+        height: 50,
+        margin: EdgeInsets.symmetric(horizontal: 16),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            IconButton(
+              icon: Icon(
+                Icons.menu,
+                color: Colors.white,
+                size: 32,
+              ),
+              onPressed: () {
+                // 处理菜单按钮点击事件
+              },
+            ),
+            Text('推荐',style: TextStyle(color: Colors.white,fontSize: 19)),
+            IconButton(
+              icon: Icon(Icons.search, color: Colors.white,size: 32,),
+              onPressed: () {
+                // 处理搜索按钮点击事件
+              },
+            ),
+          ],
+        ),
+      ),
     );
   }
 

@@ -40,33 +40,8 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage>
-    with SingleTickerProviderStateMixin {
+class _MyHomePageState extends State<MyHomePage>{
   int _selectedIndex = 0;
-
-  late Animation<double> animation;
-  late AnimationController controller;
-
-  @override
-  void initState() {
-    super.initState();
-    controller =
-        AnimationController(duration: Duration(seconds: 1), vsync: this);
-
-    animation = CurvedAnimation(parent: controller, curve: Curves.elasticInOut)
-      ..addListener(() {
-        setState(() {});
-      })
-      ..addStatusListener((states) {
-        if (states == AnimationStatus.completed) {
-          controller.reverse();
-        } else if (states == AnimationStatus.dismissed) {
-          controller.forward();
-        }
-      });
-
-    controller.forward();
-  }
 
   static List<Widget> _pages = <Widget>[
     HomePage(),
@@ -84,49 +59,6 @@ class _MyHomePageState extends State<MyHomePage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Text(widget.title),
-            mySearch(),
-            GestureDetector(
-              onTap: () {
-                showDialog(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return AlertDialog(
-                      title: Text('礼物'),
-                      content: Text('领取成功'),
-                      actions: [
-                        TextButton(
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                          child: Text('收到啦！'),
-                        ),
-                      ],
-                    );
-                  },
-                );
-              },
-              child: ColorFiltered(
-                colorFilter: ColorFilter.mode(Colors.white, BlendMode.srcIn),
-                child: RotationTransition(
-                  turns: animation,
-                  child: Image.asset(
-                    "assets/images/fg_my_daily_benefits.png",
-                    height: 22,
-                    width: 22,
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
@@ -136,56 +68,20 @@ class _MyHomePageState extends State<MyHomePage>
             label: '首页',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: '搜索',
+            icon: Icon(Icons.video_call_rounded),
+            label: '视频',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: '消息',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: '我的',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: '设置',
-          ),
         ],
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
-      ),
-    );
-  }
-
-  mySearch() {
-    return Expanded(
-      child: Container(
-        alignment: Alignment.center,
-        decoration: const BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(30.0)),
-            color: Colors.white),
-        height: 38,
-        padding: const EdgeInsets.all(10),
-        margin: const EdgeInsets.only(right: 15, left: 15, bottom: 15, top: 12),
-        child: GestureDetector(
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => SearchPage()),
-            );
-          },
-          child: Row(
-            children: <Widget>[
-              const Text("\t"),
-              Image.asset(
-                "assets/images/ic_home_seek.png",
-                height: 14,
-                width: 14,
-              ),
-              const Text(
-                "\t\t\t搜索你感兴趣的内容",
-                style: TextStyle(fontSize: 13, color: Color(0xff999999)),
-              )
-            ],
-          ),
-        ),
       ),
     );
   }
