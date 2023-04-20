@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 class AppUtil {
@@ -50,11 +48,14 @@ class AppUtil {
   ];
 
   static String videoUrl =
+      "https://www.douyin.com/aweme/v1/play/?video_id=v0200fc10000bq7900c1n3e8es2p1440&line=0&file_id=8619203d091243669f711ff7b767e2e7&sign=4adace51ab34def65431b8c5d0fc4a60&is_play_url=1&source=PackSourceEnum_SEARCH&aid=6383";
+  static String videoUrl1 =
       "https://pubmeizi.daishan.com/10787263780164_hd.mp4?width=404&height=720&isVertical=1&fsize=7656458&duration=23.0";
-
+  static String videoUrl2 =
+      "https://www.douyin.com/aweme/v1/play/?video_id=v0200fg10000cfqt4ebc77u7fguo8u70&line=0&file_id=e84f603680e34e99b56a008862587691&sign=15fc1b9ca23d68a7eccba6b2bcee4714&is_play_url=1&source=PackSourceEnum_AWEME_DETAIL&aid=6383";
   static final List<String> videoUrls = [
     videoUrl,
-    videoUrl,
+    "https://mc-public-test.tmuyun.com/10157627321604_or.mp4?width=320&height=568&isVertical=0&fsize=189388&duration=4.0",
     videoUrl,
   ];
 
