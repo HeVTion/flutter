@@ -1,0 +1,74 @@
+name: untitled
+description: A new Flutter project.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.19.6 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+
+  pull_to_refresh: ^2.0.0
+  date_format: ^2.0.7
+  flutter_swiper: ^1.1.6
+  http: ^0.13.5
+  flutter_screenutil: ^5.7.0
+  dio: ^5.1.1
+  json_annotation: ^4.8.0
+  extended_nested_scroll_view: ^6.0.0
+
+  flutter_inappwebview: ^5.7.2+3
+  banner_carousel: ^1.2.1
+  carousel_slider: ^4.2.1
+  text_scroll: ^0.2.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+flutter:
+  assets:
+    - assets/images/timg.jpg
+    - assets/images/ic_timg.jpg
+    - assets/images/ic_home_close.png #底部导航栏
+    - assets/images/ic_home_select.png
+    - assets/images/ic_home_unselect.png
+    - assets/images/ic_mine_select.png
+    - assets/images/ic_mine_unselect.png
+    - assets/images/ic_video_select.png
+    - assets/images/ic_video_unselect.png
+    - assets/images/ic_welfare_select.png
+    - assets/images/ic_welfare_unselect.png
+    - assets/images/ic_home_seek.png #首页icon
+    - assets/images/ic_bao_red_open.png
+    - assets/images/bg_bao_red_new_people.png
+    - assets/images/ic_more.png
+    - assets/images/ic_wallet.png
+    - assets/images/video_share_dian.png
+    - assets/images/fg_my_header_yellow_bg.png #我的
+    - assets/other/tutu.png
+    - assets/images/fg_my_header_setting_btn.png
+    - assets/images/fg_my_header_unbinding_mobile.png
+    - assets/images/fg_my_header_unbinding_wxchat.png
+    - assets/images/fg_my_binding_invite_code.png #
+    - assets/images/fg_my_contact_us.png
+    - assets/images/fg_my_daily_benefits.png
+    - assets/images/fg_my_invite_friend.png
+    - assets/images/fg_my_message_centre.png
+    - assets/images/fg_my_red_wallet.png
+    - assets/images/ic_pay.png
+    - assets/images/ic_box.png #福利
+    - assets/banner/b1.jpg
+    - assets/banner/b2.jpg
+    - assets/banner/b3.jpg
+    - assets/banner/b4.jpg
+    - assets/images/botlogo.png
+  uses-material-design: true
+
+
