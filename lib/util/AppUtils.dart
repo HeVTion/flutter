@@ -9,6 +9,10 @@ class AppUtil {
 
   static String tesla =
       "https://img.pcauto.com.cn/images/ttauto/2022/08/05/7127624801107313188/b5426e6cf9f949718506d720041b6620.png";
+  static String tesla4 = "https://photocdn.sohu.com/20160508/Img448319654.jpg";
+
+  static String tesla2 = "https://pic1.hebei.com.cn/003/021/593/00302159323_ec7f4791.gif";
+  static String tesla3 = "https://img.mp.itc.cn/upload/20170811/b1bbf7c8845343948ab22f71c2235798_th.jpg";
 
   static String xidd =
       "https://p2.cri.cn/M00/20/64/CqgNOlaGPHaANt5lAAAAAAAAAAA172.550x392.jpg";

@@ -1,10 +1,8 @@
-import 'package:flutter/cupertino.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:text_scroll/text_scroll.dart';
 import 'package:untitled/ui/details.dart';
 import 'package:untitled/util/AppUtils.dart';
-import 'package:banner_carousel/banner_carousel.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 
 final List<String> imgList = [
   AppUtil.imageUrl,
@@ -48,7 +46,7 @@ class Page extends State<NewsPage> with AutomaticKeepAliveClientMixin {
       case 0:
         return marqueeTextItem(); //纯文本
 
-      case 1: //上面三图下文字
+      case 1:
         return bannerItem();
 
       case 2: //左文右图
@@ -94,14 +92,14 @@ class Page extends State<NewsPage> with AutomaticKeepAliveClientMixin {
                   ),
                   Flexible(
                     flex: 1,
-                    child: Image.network(AppUtil.tesla),
+                    child: Image.network(AppUtil.tesla3),
                   ),
                   Container(
                     width: 3,
                   ),
                   Flexible(
                     flex: 1,
-                    child: Image.network(AppUtil.tesla),
+                    child: Image.network(AppUtil.tesla2),
                   ),
                 ],
               ),
@@ -198,9 +196,9 @@ class Page extends State<NewsPage> with AutomaticKeepAliveClientMixin {
   bannerItem() {
     return CarouselSlider(
       options: CarouselOptions(
+        height: 180,
         viewportFraction: 1,
         autoPlay: true,
-        enlargeCenterPage: false,
       ),
       items: imageSliders,
     );

@@ -36,8 +36,33 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage>
+    with SingleTickerProviderStateMixin {
   int _selectedIndex = 0;
+
+  late Animation<double> animation;
+  late AnimationController controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller =
+        AnimationController(duration: Duration(seconds: 1), vsync: this);
+
+    animation = CurvedAnimation(parent: controller, curve: Curves.elasticInOut)
+      ..addListener(() {
+        setState(() {});
+      })
+      ..addStatusListener((states) {
+        if (states == AnimationStatus.completed) {
+          controller.reverse();
+        } else if (states == AnimationStatus.dismissed) {
+          controller.forward();
+        }
+      });
+
+    controller.forward();
+  }
 
   static const List<Widget> _pages = <Widget>[
     HomePage(),
@@ -63,12 +88,37 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             Text(widget.title),
             mySearch(),
-            ColorFiltered(
-              colorFilter: ColorFilter.mode(Colors.white, BlendMode.srcIn),
-              child: Image.asset(
-                "assets/images/fg_my_daily_benefits.png",
-                height: 22,
-                width: 22,
+            GestureDetector(
+              onTap: () {
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      title: Text('礼物'),
+                      content: Text('领取成功'),
+                      actions: [
+                        TextButton(
+                          onPressed: () {
+
+                            Navigator.of(context).pop();
+                          },
+                          child: Text('收到啦！'),
+                        ),
+                      ],
+                    );
+                  },
+                );
+              },
+              child: ColorFiltered(
+                colorFilter: ColorFilter.mode(Colors.white, BlendMode.srcIn),
+                child: RotationTransition(
+                  turns: animation,
+                  child: Image.asset(
+                    "assets/images/fg_my_daily_benefits.png",
+                    height: 22,
+                    width: 22,
+                  ),
+                ),
               ),
             ),
           ],
