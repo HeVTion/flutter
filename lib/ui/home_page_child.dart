@@ -6,6 +6,13 @@ import 'package:untitled/util/AppUtils.dart';
 import 'package:banner_carousel/banner_carousel.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
+final List<String> imgList = [
+  AppUtil.imageUrl,
+  AppUtil.imageUrl,
+  AppUtil.imageUrl,
+  AppUtil.imageUrl,
+];
+
 class NewsPage extends StatefulWidget {
   const NewsPage({super.key});
 
@@ -180,21 +187,22 @@ class Page extends State<NewsPage> with AutomaticKeepAliveClientMixin {
     );
   }
 
-  List<BannerModel> listBanners = [
-    BannerModel(id: "1", imagePath: AppUtil.imageUrl),
-    BannerModel(id: "2", imagePath: AppUtil.imageUrl),
-    BannerModel(id: "3", imagePath: AppUtil.imageUrl),
-    BannerModel(id: "4", imagePath: AppUtil.imageUrl),
-  ];
+  List<Widget> imageSliders = imgList
+      .map((item) => Image.network(
+            item,
+            fit: BoxFit.cover,
+            width: double.infinity,
+          ))
+      .toList();
 
   bannerItem() {
     return CarouselSlider(
       options: CarouselOptions(
+        viewportFraction: 1,
         autoPlay: true,
-        aspectRatio: 2.0,
-        enlargeCenterPage: true,
+        enlargeCenterPage: false,
       ),
-      items: listBanners,
+      items: imageSliders,
     );
   }
 

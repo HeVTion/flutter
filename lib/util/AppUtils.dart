@@ -36,6 +36,13 @@ class AppUtil {
     HomeModel("飞身跳船敲舱门！美国特战队员武力拦截半潜船，搜出近8吨毒品", imageUrl)
   ];
 
+  final List<String> imgList = [
+    AppUtil.imageUrl,
+    AppUtil.imageUrl,
+    AppUtil.imageUrl,
+    AppUtil.imageUrl,
+  ];
+
   static final List<String> tabTitles = [
     '推荐',
     '热门',
