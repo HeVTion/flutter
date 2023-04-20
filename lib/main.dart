@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:untitled/ui/home_page.dart';
 import 'package:flutter/services.dart';
+import 'package:untitled/ui/search_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -161,19 +162,27 @@ class _MyHomePageState extends State<MyHomePage>
         height: 38,
         padding: const EdgeInsets.all(10),
         margin: const EdgeInsets.only(right: 15, left: 15, bottom: 15, top: 12),
-        child: Row(
-          children: <Widget>[
-            const Text("\t"),
-            Image.asset(
-              "assets/images/ic_home_seek.png",
-              height: 14,
-              width: 14,
-            ),
-            const Text(
-              "\t\t\t搜索你感兴趣的内容",
-              style: TextStyle(fontSize: 13, color: Color(0xff999999)),
-            )
-          ],
+        child: GestureDetector(
+          onTap: (){
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => SearchPage()),
+            );
+          },
+          child: Row(
+            children: <Widget>[
+              const Text("\t"),
+              Image.asset(
+                "assets/images/ic_home_seek.png",
+                height: 14,
+                width: 14,
+              ),
+              const Text(
+                "\t\t\t搜索你感兴趣的内容",
+                style: TextStyle(fontSize: 13, color: Color(0xff999999)),
+              )
+            ],
+          ),
         ),
       ),
     );
