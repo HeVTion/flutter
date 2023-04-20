@@ -1,7 +1,10 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled/ui/home_page.dart';
 import 'package:flutter/services.dart';
 import 'package:untitled/ui/search_page.dart';
+import 'package:untitled/ui/video_page.dart';
+import 'package:untitled/util/AppUtils.dart';
 
 void main() {
   runApp(const MyApp());
@@ -65,9 +68,9 @@ class _MyHomePageState extends State<MyHomePage>
     controller.forward();
   }
 
-  static const List<Widget> _pages = <Widget>[
+  static List<Widget> _pages = <Widget>[
     HomePage(),
-    Text('页面 2'),
+    VideoPlayPage(),
     Text('页面 3'),
     Text('页面 4'),
   ];
@@ -100,7 +103,6 @@ class _MyHomePageState extends State<MyHomePage>
                       actions: [
                         TextButton(
                           onPressed: () {
-
                             Navigator.of(context).pop();
                           },
                           child: Text('收到啦！'),
@@ -163,7 +165,7 @@ class _MyHomePageState extends State<MyHomePage>
         padding: const EdgeInsets.all(10),
         margin: const EdgeInsets.only(right: 15, left: 15, bottom: 15, top: 12),
         child: GestureDetector(
-          onTap: (){
+          onTap: () {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => SearchPage()),

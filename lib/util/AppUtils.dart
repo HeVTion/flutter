@@ -11,8 +11,10 @@ class AppUtil {
       "https://img.pcauto.com.cn/images/ttauto/2022/08/05/7127624801107313188/b5426e6cf9f949718506d720041b6620.png";
   static String tesla4 = "https://photocdn.sohu.com/20160508/Img448319654.jpg";
 
-  static String tesla2 = "https://pic1.hebei.com.cn/003/021/593/00302159323_ec7f4791.gif";
-  static String tesla3 = "https://img.mp.itc.cn/upload/20170811/b1bbf7c8845343948ab22f71c2235798_th.jpg";
+  static String tesla2 =
+      "https://pic1.hebei.com.cn/003/021/593/00302159323_ec7f4791.gif";
+  static String tesla3 =
+      "https://img.mp.itc.cn/upload/20170811/b1bbf7c8845343948ab22f71c2235798_th.jpg";
 
   static String xidd =
       "https://p2.cri.cn/M00/20/64/CqgNOlaGPHaANt5lAAAAAAAAAAA172.550x392.jpg";
@@ -47,7 +49,16 @@ class AppUtil {
     AppUtil.imageUrl,
   ];
 
-  static final List<String> tabTitles = [
+  static String videoUrl =
+      "https://pubmeizi.daishan.com/10787263780164_hd.mp4?width=404&height=720&isVertical=1&fsize=7656458&duration=23.0";
+
+  static final List<String> videoUrls = [
+    videoUrl,
+    videoUrl,
+    videoUrl,
+  ];
+
+  static List<String> tabTitles = [
     '推荐',
     '热门',
     '新闻',
