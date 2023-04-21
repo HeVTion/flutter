@@ -15,30 +15,10 @@ class HomePageState extends State<HomePage>
   late TabController _tabController;
   final List<String> _tabTitles = AppUtil.tabTitles;
 
-  late Animation<double> animation;
-  late AnimationController controller;
-
   @override
   void initState() {
     super.initState();
     _tabController = TabController(length: _tabTitles.length, vsync: this);
-
-    controller =
-        AnimationController(duration: Duration(seconds: 1), vsync: this);
-
-    animation = CurvedAnimation(parent: controller, curve: Curves.elasticInOut)
-      ..addListener(() {
-        setState(() {});
-      })
-      ..addStatusListener((states) {
-        if (states == AnimationStatus.completed) {
-          controller.reverse();
-        } else if (states == AnimationStatus.dismissed) {
-          controller.forward();
-        }
-      });
-
-    controller.forward();
   }
 
   @override
@@ -90,13 +70,10 @@ class HomePageState extends State<HomePage>
             },
             child: ColorFiltered(
               colorFilter: ColorFilter.mode(Colors.white, BlendMode.srcIn),
-              child: RotationTransition(
-                turns: animation,
-                child: Image.asset(
-                  "assets/images/fg_my_daily_benefits.png",
-                  height: 22,
-                  width: 22,
-                ),
+              child: Image.asset(
+                "assets/images/fg_my_daily_benefits.png",
+                height: 22,
+                width: 22,
               ),
             ),
           ),
