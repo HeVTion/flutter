@@ -1,10 +1,8 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:untitled/ui/home_page.dart';
 import 'package:flutter/services.dart';
-import 'package:untitled/ui/search_page.dart';
+import 'package:untitled/ui/home_page.dart';
+import 'package:untitled/ui/mine_page.dart';
 import 'package:untitled/ui/video_page.dart';
-import 'package:untitled/util/AppUtils.dart';
 
 void main() {
   runApp(const MyApp());
@@ -40,14 +38,14 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage>{
+class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
 
   static List<Widget> _pages = <Widget>[
     HomePage(),
     VideoPlayPage(),
     Text('页面 3'),
-    Text('页面 4'),
+    MinePage(),
   ];
 
   void _onItemTapped(int index) {
