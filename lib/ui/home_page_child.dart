@@ -92,14 +92,14 @@ class Page extends State<NewsPage> with AutomaticKeepAliveClientMixin {
                   ),
                   Flexible(
                     flex: 1,
-                    child: Image.network(AppUtil.tesla3),
+                    child: Image.network(AppUtil.tesla),
                   ),
                   Container(
                     width: 3,
                   ),
                   Flexible(
                     flex: 1,
-                    child: Image.network(AppUtil.tesla2),
+                    child: Image.network(AppUtil.tesla),
                   ),
                 ],
               ),
