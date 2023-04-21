@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/ui/search_page.dart';
 import 'package:untitled/util/AppUtils.dart';
 import 'package:video_player/video_player.dart';
 
@@ -75,12 +76,12 @@ class _VideoPlayPageState extends State<VideoPlayPage> {
     return SafeArea(
       child: Container(
         height: 50,
-        margin: EdgeInsets.symmetric(horizontal: 16),
+        margin: const EdgeInsets.symmetric(horizontal: 16),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             IconButton(
-              icon: Icon(
+              icon: const Icon(
                 Icons.menu,
                 color: Colors.white,
                 size: 32,
@@ -89,11 +90,14 @@ class _VideoPlayPageState extends State<VideoPlayPage> {
                 // 处理菜单按钮点击事件
               },
             ),
-            Text('推荐',style: TextStyle(color: Colors.white,fontSize: 19)),
+            const Text('推 荐',style: TextStyle(color: Colors.white,fontSize: 20, fontWeight: FontWeight.w900)),
             IconButton(
-              icon: Icon(Icons.search, color: Colors.white,size: 32,),
+              icon: const Icon(Icons.search, color: Colors.white,size: 32,),
               onPressed: () {
-                // 处理搜索按钮点击事件
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SearchPage()),
+                );
               },
             ),
           ],
