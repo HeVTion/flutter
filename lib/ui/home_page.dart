@@ -11,7 +11,7 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage>
-    with TickerProviderStateMixin {
+    with TickerProviderStateMixin, AutomaticKeepAliveClientMixin{
   late TabController _tabController;
   final List<String> _tabTitles = AppUtil.tabTitles;
 
@@ -153,5 +153,9 @@ class HomePageState extends State<HomePage>
       ),
     );
   }
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
 
 }

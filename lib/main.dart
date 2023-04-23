@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:untitled/ui/home_page.dart';
 import 'package:untitled/ui/mine_page.dart';
 import 'package:untitled/ui/video_page.dart';
+import 'package:untitled/ui/web_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -44,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
   static List<Widget> _pages = <Widget>[
     HomePage(),
     VideoPlayPage(),
-    Text('页面 3'),
+    WebPage(),
     MinePage(),
   ];
 
@@ -57,7 +58,10 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _pages[_selectedIndex],
+      body: IndexedStack(
+        index: _selectedIndex,
+        children: _pages,
+      ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         items: const <BottomNavigationBarItem>[

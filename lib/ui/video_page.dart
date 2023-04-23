@@ -8,13 +8,18 @@ class VideoPlayPage extends StatefulWidget {
   _VideoPlayPageState createState() => _VideoPlayPageState();
 }
 
-class _VideoPlayPageState extends State<VideoPlayPage> {
+class _VideoPlayPageState extends State<VideoPlayPage> with AutomaticKeepAliveClientMixin,WidgetsBindingObserver{
   late PageController _pageController;
   late List<VideoPlayerController> _videoControllers;
 
   @override
+  bool get wantKeepAlive => true;
+
+  @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
+
     _pageController = PageController();
     _videoControllers = [
       VideoPlayerController.network(AppUtil.videoUrl),
@@ -63,7 +68,17 @@ class _VideoPlayPageState extends State<VideoPlayPage> {
   }
 
   @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.paused) {
+      _videoControllers[videoIndex].pause();
+    } else if (state == AppLifecycleState.resumed) {
+      _videoControllers[videoIndex].play();    }
+  }
+
+
+  @override
   Widget build(BuildContext context) {
+    super.build(context); // 需要调用 super.build(context)
     return Stack(children: [
       Scaffold(
         body: buildPageView(),
@@ -106,6 +121,8 @@ class _VideoPlayPageState extends State<VideoPlayPage> {
     );
   }
 
+  var videoIndex;
+
   PageView buildPageView() {
     return PageView.builder(
       controller: _pageController,
@@ -113,6 +130,7 @@ class _VideoPlayPageState extends State<VideoPlayPage> {
       scrollDirection: Axis.vertical,
       onPageChanged: _onPageChanged,
       itemBuilder: (context, index) {
+        videoIndex = index;
         final controller = _videoControllers[index];
         return controller.value.isInitialized
             ? GestureDetector(
